@@ -1,0 +1,14 @@
+
+# Overlord
+/o
+
+# Sqlite
+*.sqlite3
+
+# Python
+.pytest_cache/
+__pycache__/
+
+# Developer Envrionments
+.vscode/
+.idea/

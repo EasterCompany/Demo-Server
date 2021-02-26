@@ -1,0 +1,6 @@
+[submodule "clients"]
+	path = clients
+	url = git@github.com:EasterCompany/Demo-Clients.git
+[submodule "tools"]
+	path = tools
+	url = git@github.com:EasterCompany/Overlord-Tools.git

@@ -1,6 +1,7 @@
 
 # Overlord
 /o
+.tools_config/
 
 # Sqlite
 *.sqlite3

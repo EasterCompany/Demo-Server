@@ -19,4 +19,5 @@ def main():
 if __name__ == '__main__':
     if len(argv) > 1 and argv[1] == 'tools':
         tools.run()
-    main()
+    else:
+        main()

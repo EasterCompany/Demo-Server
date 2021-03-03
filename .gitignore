@@ -2,8 +2,7 @@
 # Overlord
 /o
 *.key
-config/clients.json
-config/server.json
+config/*
 
 # Sqlite
 *.sqlite3

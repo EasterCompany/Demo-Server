@@ -14,6 +14,10 @@ urlpatterns = [
     path('manifest.json', manifestJSON),
     path('asset-manifest.json', asset_manifest),
 
+    # Global App Service Worker
+    path('service-worker.js', service_worker),
+    path('service-worker.js.map', service_worker_map),
+
     # Seclea App
     path('seclea/', seclea_app),
     path('seclea/manifest.json', seclea_manifestJSON),

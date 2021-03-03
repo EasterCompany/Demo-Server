@@ -3,6 +3,7 @@
 /o
 *.key
 config/clients.json
+config/server.json
 
 # Sqlite
 *.sqlite3

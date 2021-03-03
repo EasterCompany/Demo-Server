@@ -1,13 +1,15 @@
+# Django module imports
 from django.shortcuts import render
+
+# Local app view imports
+from .seclea.views import *
+from .donation.views import *
+from .inverair.views import *
 
 
 # ---------------------- FORMATING FUNCTIONS / THESE ARE NOT VIEWS --------------------- #
 def main(file_path):
     return 'global/build/{file_path}'.format(file_path=file_path)
-
-
-def seclea(file_path):
-    return 'seclea/build/{file_path}'.format(file_path=file_path)
 
 
 # ------------------------------ GLOBAL CLIENT CORE VIEWS ------------------------------ #
@@ -25,17 +27,3 @@ def manifestJSON(req, *args, **kwargs):
 
 def asset_manifest(req, *args, **kwargs):
     return render(req, main('asset-manifest.json'), content_type='application/json')
-
-
-# ------------------------------ SECLEA CLIENT CORE VIEWS ------------------------------ #
-def seclea_app(req, *args, **kwargs):
-    return render(req, seclea('index.html'))
-
-
-def seclea_manifestJSON(req, *args, **kwargs):
-    return render(req, seclea('manifest.json'), content_type='application/json')
-
-
-def seclea_asset_manifest(req, *args, **kwargs):
-    return render(req, seclea('asset-manifest.json'), content_type='application/json')
-# ---------------------------------------------------------------------------------------#

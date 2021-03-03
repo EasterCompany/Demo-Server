@@ -19,4 +19,14 @@ urlpatterns = [
     path('seclea/manifest.json', seclea_manifestJSON),
     path('seclea/asset-manifest.json', seclea_asset_manifest),
 
+    # Inverair App
+    path('inverair/', inverair_app),
+    path('inverair/manifest.json', inverair_manifestJSON),
+    path('inverair/asset-manifest.json', inverair_asset_manifest),
+
+    # DoNation App
+    path('donation/', donation_app),
+    path('donation/manifest.json', donation_manifestJSON),
+    path('donation/asset-manifest.json', donation_asset_manifest),
+
 ]

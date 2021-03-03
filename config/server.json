@@ -3,7 +3,8 @@
   "TIME_ZONE": "UTC",
   "ALLOWED_HOSTS": [
     "127.0.0.1",
-    "localhost"
+    "localhost",
+    ".eastercompany.eu.pythonanywhere.com"
   ],
   "INSTALLED_APPS": [
     "django.contrib.admin",

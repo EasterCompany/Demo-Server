@@ -2,6 +2,7 @@
 # Overlord
 /o
 *.key
+static/*
 config/*
 
 # Sqlite

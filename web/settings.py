@@ -3,7 +3,7 @@ import os
 from json import loads
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DEBUG = True
+DEBUG = False
 
 SERVER_FILE = open(BASE_DIR + '/config/server.json')
 SERVER_DATA = loads(SERVER_FILE.read())
@@ -65,6 +65,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 STATIC_URL = SERVER_DATA['STATIC_URL']
+STATIC_ROOT = SERVER_DATA['STATIC_ROOT']
 STATICFILES_DIRS = [
     CLIENT_DATA[client]['path'] + '/build/static' for client in CLIENT_DATA
 ]

@@ -25,7 +25,8 @@
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware"
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware"
   ],
   "ROOT_URLCONF": "web.urls",
   "WSGI_APPLICATION": "web.wsgi.application",
@@ -39,6 +40,6 @@
     ]
   },
   "APP_DIRS_TEMPLATE": true,
-  "STATIC_URL": "/static/",
+  "STATIC_URL": "static/",
   "CORS_ORIGIN_ALLOW_ALL": false
 }

@@ -14,7 +14,7 @@ def main(file_path):
 
 # ------------------------------ GLOBAL CLIENT CORE VIEWS ------------------------------ #
 def index(req, *args, **kwargs):
-    return render(req, main('index.html'))
+    return render(req, main('index'))
 
 
 def robots(req, *args, **kwargs):

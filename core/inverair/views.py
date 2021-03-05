@@ -9,7 +9,7 @@ def inverair(file_path):
 
 # --------------------------------- CLIENT CORE VIEWS ---------------------------------- #
 def inverair_app(req, *args, **kwargs):
-    return render(req, inverair('index.html'))
+    return render(req, inverair('index'))
 
 
 def inverair_manifestJSON(req, *args, **kwargs):

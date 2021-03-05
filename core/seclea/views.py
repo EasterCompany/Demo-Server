@@ -9,7 +9,7 @@ def seclea(file_path):
 
 # --------------------------------- CLIENT CORE VIEWS ---------------------------------- #
 def seclea_app(req, *args, **kwargs):
-    return render(req, seclea('index.html'))
+    return render(req, seclea('index'))
 
 
 def seclea_manifestJSON(req, *args, **kwargs):

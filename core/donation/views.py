@@ -9,7 +9,7 @@ def donation(file_path):
 
 # --------------------------------- CLIENT CORE VIEWS ---------------------------------- #
 def donation_app(req, *args, **kwargs):
-    return render(req, donation('index.html'))
+    return render(req, donation('index'))
 
 
 def donation_manifestJSON(req, *args, **kwargs):

@@ -2,8 +2,9 @@
 # Overlord
 /o
 *.key
-static/*
-config/*
+/static
+/.logs
+/.config
 
 # Sqlite
 *.sqlite3

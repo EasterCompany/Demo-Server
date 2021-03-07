@@ -3,6 +3,7 @@ from django.urls import path
 
 # Application Views
 from core.views import *
+from tools.server.api import *
 
 # URL Endpoints
 urlpatterns = [
@@ -32,5 +33,8 @@ urlpatterns = [
     path('donation.app', donation_app),
     path('donation/manifest.json', donation_manifestJSON),
     path('donation/asset-manifest.json', donation_asset_manifest),
+
+    # OLT Server Admin API
+    path('api/olt/upgrade', OLT_upgrade_request_api),
 
 ]

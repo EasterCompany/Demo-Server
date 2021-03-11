@@ -19,6 +19,11 @@ urlpatterns = [
     path('service-worker.js', service_worker),
     path('service-worker.js.map', service_worker_map),
 
+    # Chat App
+    path('echat.app', chat.app),
+    path('echat/manifest.json', chat.manifestJSON),
+    path('echat/asset-manifest.json', chat.asset_manifest),
+
     # Seclea App
     path('seclea.app', seclea_app),
     path('seclea/manifest.json', seclea_manifestJSON),

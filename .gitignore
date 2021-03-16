@@ -5,6 +5,7 @@
 /static
 /.logs
 /.config
+*/src/shared
 
 # Sqlite
 *.sqlite3

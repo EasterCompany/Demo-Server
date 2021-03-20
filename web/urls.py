@@ -1,7 +1,9 @@
 # Essential
+from api.new_user.views import register_new_user
 from django.urls import path
 
 # Application Views
+from api.views import *
 from core.views import *
 from tools.server.api import *
 
@@ -42,5 +44,9 @@ urlpatterns = [
     # OLT Server Admin API
     path('api/olt/status', OLT_status_api),
     path('api/olt/upgrade', OLT_upgrade_request_api),
+
+    # Login API
+    path('api/login', login.views.user),
+    path('api/register', new_user.views.register_new_user)
 
 ]

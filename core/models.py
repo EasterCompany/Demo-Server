@@ -6,7 +6,7 @@ from django.utils import timezone
 
 
 def session_expire_date():
-    return (datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d %H:%M:%S")
+    return (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
 
 
 class UserLogin(models.Model):

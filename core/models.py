@@ -1,12 +1,6 @@
-# Standard library imports
-from datetime import datetime, timedelta
 # Django module imports
 from django.db import models
 from django.utils import timezone
-
-
-def session_expire_date():
-    return (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
 
 
 class UserLogin(models.Model):
@@ -27,6 +21,3 @@ class UserLogin(models.Model):
 class UserSessions(models.Model):
     uid = models.TextField(null=False, blank=False)
     key = models.TextField(null=False, blank=False)
-    expires = models.DateField(
-        null=False, blank=False, default=session_expire_date
-    )

@@ -22,6 +22,7 @@ urlpatterns = [
     path('service-worker.js.map', service_worker_map),
 
     # Chat App
+    path('messages', chat.app),
     path('echat.app', chat.app),
     path('echat/manifest.json', chat.manifestJSON),
     path('echat/asset-manifest.json', chat.asset_manifest),
@@ -47,6 +48,7 @@ urlpatterns = [
 
     # Login API
     path('api/login', login.views.user),
+    path('api/login/verify', login.views.verify),
     path('api/register', new_user.views.register_new_user)
 
 ]

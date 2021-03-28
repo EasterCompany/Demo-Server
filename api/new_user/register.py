@@ -1,8 +1,7 @@
 # Standard library imports
-from hashlib import md5
 from random import randint
 # Local app imports
-from core.models import UserLogin
+from core.models import UserLogin, UserDetails
 
 
 def verify_registration(email):
@@ -34,6 +33,10 @@ def create_new_user(email, password, dob):
         email=email,
         key=password,
         dob=user_dob
+    )
+    UserDetails.objects.create(
+        uid=user_uid,
+        display_name=email.split('@')[0].title()
     )
     # Return OK status
     return {'status': 'OK'}

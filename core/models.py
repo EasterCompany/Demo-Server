@@ -21,3 +21,11 @@ class UserLogin(models.Model):
 class UserSessions(models.Model):
     uid = models.TextField(null=False, blank=False)
     key = models.TextField(null=False, blank=False)
+
+
+class UserDetails(models.Model):
+    uid = models.TextField(null=False, blank=False)
+    display_image = models.TextField()
+    display_name = models.TextField(null=False, blank=False)
+    first_name = models.TextField()
+    last_name = models.TextField()

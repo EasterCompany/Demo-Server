@@ -26,4 +26,4 @@ def verify(req, *args, **kwargs):
         Returns: JsonResponse with status `BAD` or `OK`
     '''
     uid, key = req.headers['Authorization'].split(' ')
-    return JsonResponse({'status': verify_session(uid, key)})
+    return JsonResponse(verify_session(uid, key))

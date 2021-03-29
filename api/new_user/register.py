@@ -4,6 +4,14 @@ from random import randint
 from core.models import UserLogin, UserDetails
 
 
+def email_not_exists(email):
+    if UserLogin.objects.filter(email=email).count() > 0:
+        print('BAD')
+        return 'BAD'
+    print('OK')
+    return 'OK'
+
+
 def verify_registration(email):
 
     def get_new_user_uid():

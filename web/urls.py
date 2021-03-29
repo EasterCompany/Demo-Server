@@ -1,4 +1,5 @@
 # Essential
+from api.new_user.register import email_not_exists
 from api.new_user.views import register_new_user
 from django.urls import path
 
@@ -49,6 +50,9 @@ urlpatterns = [
     # Login API
     path('api/login', login.views.user),
     path('api/login/verify', login.views.verify),
-    path('api/register', new_user.views.register_new_user)
+
+    # Register API
+    path('api/register', new_user.views.register_new_user),
+    path('api/register/verify', new_user.views.check_email_exists)
 
 ]

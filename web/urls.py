@@ -43,6 +43,11 @@ urlpatterns = [
     path('donation/manifest.json', donation_manifestJSON),
     path('donation/asset-manifest.json', donation_asset_manifest),
 
+    # Pardoewray App
+    path('pardoewray', pardoewray_app),
+    path('pardoewray/manifest.json', pardoewray_manifestJSON),
+    path('pardoewray/asset-manifest.json', pardoewray_asset_manifest),
+
     # OLT Server Admin API
     path('api/olt/status', OLT_status_api),
     path('api/olt/upgrade', OLT_upgrade_request_api),

@@ -1,7 +1,5 @@
 # Essential
-from api.new_user.register import email_not_exists
-from api.new_user.views import register_new_user
-from django.urls import path
+from django.urls import path, re_path
 
 # Application Views
 from api.views import *
@@ -44,9 +42,9 @@ urlpatterns = [
     path('donation/asset-manifest.json', donation_asset_manifest),
 
     # Pardoewray App
-    path('pardoewray', pardoewray_app),
     path('pardoewray/manifest.json', pardoewray_manifestJSON),
     path('pardoewray/asset-manifest.json', pardoewray_asset_manifest),
+    re_path(r'pardoewray.*$', pardoewray_app, name='pardoewray'),
 
     # OLT Server Admin API
     path('api/olt/status', OLT_status_api),

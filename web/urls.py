@@ -46,6 +46,10 @@ urlpatterns = [
     path('pardoewray/asset-manifest.json', pardoewray_asset_manifest),
     re_path(r'pardoewray/.*$', pardoewray_app, name='pardoewray'),
 
+    # Pardoewray API
+    path('api/jobs', pardoewrayAPI.fetch_job_postings),
+    path('api/jobs/<str:uid>', pardoewrayAPI.fetch_job_detail),
+
     # OLT Server Admin API
     path('api/olt/status', OLT_status_api),
     path('api/olt/upgrade', OLT_upgrade_request_api),

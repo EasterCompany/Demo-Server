@@ -73,5 +73,7 @@ STATICFILES_DIRS = [
 CORS_ORIGIN_ALLOW_ALL = SERVER_DATA['CORS_ORIGIN_ALLOW_ALL']
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
-    'http://localhost:8100'
+    'http://localhost:8100',
+    'http://localhost:8105',
+    'http://localhost:45678' # REACT SNAP
 )

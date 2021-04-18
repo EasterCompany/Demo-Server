@@ -72,7 +72,10 @@ def delete_job_post_admin(req, uid, *args, **kwargs):
 
 def create_new_post(req, title, company, website, location, jType, *args, **kwargs):
     if req.headers['Authorization'] == SECRET_KEY:
-        post_uid = int(Jobs.objects.first().id) + 1
+        if Jobs.objects.count() > 0:
+            post_uid = int(Jobs.objects.first().id) + 1
+        else:
+            post_uid = 0
         Jobs.objects.create(
             uid=post_uid,
             Title=unquote(title),

@@ -9,6 +9,7 @@
 
 # Sqlite
 *.sqlite3
+*.sqlite3-journal
 
 # Python
 .pytest_cache/

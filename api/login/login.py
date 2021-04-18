@@ -1,4 +1,5 @@
 # Local app imports
+from web.settings import SECRET_KEY
 from core.models import UserLogin, UserSessions, UserDetails
 # Django module imports
 from django.utils import timezone
@@ -66,4 +67,13 @@ def email_login(email, key):
             'email': logged.first().email
         }
 
+    return {'status': 'BAD'}
+
+
+def admin_login(secret_key):
+    if secret_key == SECRET_KEY:
+        return {
+            'status': 'OK',
+            'token': get_user_session('admin')
+        }
     return {'status': 'BAD'}

@@ -20,8 +20,8 @@ USE_L10N = True
 USE_TZ = True
 
 try:
-    SECRET_KEY_FILE = open(BASE_DIR + '/.config/.secret.key')
-    SECRET_KEY = SECRET_KEY_FILE.read()
+    SECRET_KEY_FILE = open(BASE_DIR + '/.config/secret.json')
+    SECRET_KEY = loads(SECRET_KEY_FILE.read())['SECRET_KEY']
     SECRET_KEY_FILE.close()
 except:
     SECRET_KEY = 'no secret key'

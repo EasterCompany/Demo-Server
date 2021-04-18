@@ -49,6 +49,16 @@ urlpatterns = [
     # Pardoewray API
     path('api/jobs', pardoewrayAPI.fetch_job_postings),
     path('api/jobs/<str:uid>', pardoewrayAPI.fetch_job_detail),
+    path('api/admin/jobs', pardoewrayAPI.fetch_job_postings_admin),
+    path('api/admin/jobs/delete/<str:uid>', pardoewrayAPI.delete_job_post_admin),
+    path(
+        'api/admin/jobs/create/<str:title>/<str:company>/<str:website>/<str:location>/<str:jType>',
+        pardoewrayAPI.create_new_post
+    ),
+    path(
+        'api/admin/jobs/update/desc/<str:uid>/<str:description>',
+        pardoewrayAPI.update_post_desc
+    ),
 
     # OLT Server Admin API
     path('api/olt/status', OLT_status_api),
@@ -56,6 +66,7 @@ urlpatterns = [
 
     # Login API
     path('api/login', login.views.user),
+    path('api/admin', login.views.admin),
     path('api/login/verify', login.views.verify),
 
     # Register API

@@ -59,6 +59,10 @@ urlpatterns = [
         'api/admin/jobs/update/desc/<str:uid>/<str:description>',
         pardoewrayAPI.update_post_desc
     ),
+    path(
+        'api/admin/jobs/update/reqs/<str:uid>/<str:reqs>',
+        pardoewrayAPI.update_post_reqs
+    ),
 
     # OLT Server Admin API
     path('api/olt/status', OLT_status_api),

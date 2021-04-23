@@ -3,9 +3,8 @@ from web.settings import SECRET_KEY
 # Django imports imports
 from urllib.parse import unquote
 from django.http import JsonResponse
-from django.core.management.utils import get_random_secret_key
 # Database model imports
-from api.pardoewray.models import Jobs
+from api.pardoewray.models import Jobs, JobRequirements
 
 
 def parse_post(obj):
@@ -29,7 +28,10 @@ def parse_post_admin(obj):
     }
 
 
-def parse_data(obj):
+def parse_data(obj, reqs=[]):
+    requirements = []
+    for r in reqs:
+        requirements.append(r.required)
     return {
         'title': obj.Title,
         'company': obj.Company,
@@ -37,7 +39,8 @@ def parse_data(obj):
         'description': obj.Description,
         'location': obj.Location,
         'type': obj.Type,
-        'date': str(obj.Date_Added).replace('-', '/')
+        'date': str(obj.Date_Added).replace('-', '/'),
+        'reqs': requirements
     }
 
 
@@ -50,8 +53,9 @@ def fetch_job_postings(req, *args, **kwargs):
 
 def fetch_job_detail(req, uid, *args, **kwargs):
     data = Jobs.objects.filter(uid=uid).first()
+    reqs = JobRequirements.objects.filter(uid=uid).all()
     return JsonResponse({
-        uid: parse_data(data)
+        uid: parse_data(data, reqs)
     })
 
 
@@ -96,5 +100,17 @@ def update_post_desc(req, uid, description, *args, **kwargs):
         j = Jobs.objects.get(uid=unquote(uid))
         j.Description = unquote(description)
         j.save()
+        return JsonResponse({'status': 'OK'})
+    return JsonResponse({'status': 'BAD'})
+
+
+def update_post_reqs(req, uid, reqs, *args, **kwargs):
+    if req.headers['Authorization'] == SECRET_KEY:
+        rs = unquote(reqs).split(',')
+        for r in rs:
+            JobRequirements.objects.create(
+                uid=unquote(uid),
+                required=r.strip()
+            )
         return JsonResponse({'status': 'OK'})
     return JsonResponse({'status': 'BAD'})

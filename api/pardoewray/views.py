@@ -1,4 +1,5 @@
 # Local app imports
+from api.pardoewray import email
 from web.settings import SECRET_KEY
 # Django imports imports
 from urllib.parse import unquote
@@ -114,3 +115,13 @@ def update_post_reqs(req, uid, reqs, *args, **kwargs):
             )
         return JsonResponse({'status': 'OK'})
     return JsonResponse({'status': 'BAD'})
+
+
+def user_apply(req, uid, fname, lname, umail, number, *args, **kwargs):
+    return JsonResponse(email.service.send_application(
+        job_id=unquote(uid),
+        fname=unquote(fname),
+        lname=unquote(lname),
+        user_email=unquote(umail),
+        user_mobile=unquote(number)
+    ))

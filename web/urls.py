@@ -49,6 +49,10 @@ urlpatterns = [
     # Pardoewray API
     path('api/jobs', pardoewrayAPI.fetch_job_postings),
     path('api/jobs/<str:uid>', pardoewrayAPI.fetch_job_detail),
+    path(
+        'api/jobs/apply/<str:uid>/<str:fname>/<str:lname>/<str:umail>/<str:number>',
+        pardoewrayAPI.user_apply
+    ),
     path('api/admin/jobs', pardoewrayAPI.fetch_job_postings_admin),
     path('api/admin/jobs/delete/<str:uid>', pardoewrayAPI.delete_job_post_admin),
     path(

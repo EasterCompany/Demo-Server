@@ -27,7 +27,7 @@ class JobRequirements(models.Model):
 
 class NewsLetter(models.Model):
     Title = models.TextField(null=False, blank=False)
-    Body = models.TextField(null=False, blank=False)
+    Content = models.TextField(null=False, blank=False)
     Date_Added = models.DateField(
         null=False, blank=False, default=timezone.now
     )

@@ -5,7 +5,7 @@ from web.settings import SECRET_KEY
 from urllib.parse import unquote
 from django.http import JsonResponse
 # Database model imports
-from api.pardoewray.models import Jobs, JobRequirements
+from api.pardoewray.models import Jobs, JobRequirements, NewsLetter
 
 
 def parse_post(obj):
@@ -125,3 +125,34 @@ def user_apply(req, uid, fname, lname, umail, number, *args, **kwargs):
         user_email=unquote(umail),
         user_mobile=unquote(number)
     ))
+
+
+def fetch_news(req, *args, **kwargs):
+    posts = []
+    objs = NewsLetter.objects.all()
+    for obj in objs:
+        posts.append({
+            'id': obj.id,
+            'title': obj.Title,
+            'date': str(obj.Date_Added).replace('-', '/')
+        })
+    return JsonResponse({'posts': posts})
+
+
+def fetch_post(req, pid, *args, **kwargs):
+    p = NewsLetter.objects.filter(id=pid).first()
+    return JsonResponse({pid: {
+        'title': p.Title,
+        'content': p.Content,
+        'date': str(p.Date_Added).replace('-', '/')
+    }})
+
+
+def create_news(req, title, content, *args, **kwargs):
+    if req.headers['Authorization'] == SECRET_KEY:
+        NewsLetter.objects.create(
+            Title=unquote(title),
+            Content=unquote(content)
+        )
+        return JsonResponse({'status': 'OK'})
+    return JsonResponse({'status': 'BAD'})

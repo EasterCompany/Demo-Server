@@ -12,10 +12,6 @@ CLIENT_FILE = open(BASE_DIR + '/.config/clients.json')
 CLIENT_DATA = loads(CLIENT_FILE.read())
 CLIENT_FILE.close()
 
-SECRET_FILE = open(BASE_DIR + '/.config/secret.json')
-SECRET_DATA = loads(SECRET_FILE.read())
-SECRET_FILE.close()
-
 DEBUG = SERVER_DATA['DEBUG']
 LANGUAGE_CODE = SERVER_DATA['LANGUAGE_CODE']
 TIME_ZONE = SERVER_DATA['TIME_ZONE']
@@ -23,11 +19,14 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-if 'SECRET_KEY' in SECRET_DATA:
-    SECRET_KEY = SECRET_DATA['SECRET_KEY']
+if os.path.exists(BASE_DIR + '/.config/secret.json'):
+    SECRET_FILE = open(BASE_DIR + '/.config/secret.json')
+    SECRET_DATA = loads(SECRET_FILE.read())
+    SECRET_FILE.close()
 else:
-    SECRET_KEY = 'no_secret_key'
+    SECRET_DATA = {'SECRET_KEY': 'no secret key'}
 
+SECRET_KEY = SECRET_DATA['SECRET_KEY']
 ALLOWED_HOSTS = SERVER_DATA['ALLOWED_HOSTS']
 INSTALLED_APPS = SERVER_DATA['INSTALLED_APPS']
 MIDDLEWARE = SERVER_DATA['MIDDLEWARE']

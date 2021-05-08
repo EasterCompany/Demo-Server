@@ -3,8 +3,6 @@ from django.shortcuts import render
 
 # Local app view imports
 from .chat import views as chat
-from .seclea.views import *
-from .donation.views import *
 from .inverair.views import *
 from .pardoewray.views import *
 

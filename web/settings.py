@@ -19,14 +19,13 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-if os.path.exists(BASE_DIR + '/.config/secret.json'):
-    SECRET_FILE = open(BASE_DIR + '/.config/secret.json')
-    SECRET_DATA = loads(SECRET_FILE.read())
-    SECRET_FILE.close()
-else:
-    SECRET_DATA = {'SECRET_KEY': 'no secret key'}
+try:
+    SECRET_KEY_FILE = open(BASE_DIR + '/.config/secret.json')
+    SECRET_KEY = loads(SECRET_KEY_FILE.read())['SECRET_KEY']
+    SECRET_KEY_FILE.close()
+except:
+    SECRET_KEY = 'no secret key'
 
-SECRET_KEY = SECRET_DATA['SECRET_KEY']
 ALLOWED_HOSTS = SERVER_DATA['ALLOWED_HOSTS']
 INSTALLED_APPS = SERVER_DATA['INSTALLED_APPS']
 MIDDLEWARE = SERVER_DATA['MIDDLEWARE']

@@ -1,0 +1,24 @@
+
+# Overlord
+/o
+*.key
+/static
+/.logs
+/.config
+*/src/shared
+
+# Sqlite
+*.sqlite3
+*.sqlite3-journal
+
+# Python
+.pytest_cache/
+__pycache__/
+
+# Node
+.eslintcache
+node_modules/
+
+# Developer Envrionments
+.vscode/
+.idea/

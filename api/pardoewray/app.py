@@ -1,3 +1,5 @@
+# Essential
+from django.urls import path, re_path
 # Django module imports
 from django.shortcuts import render
 
@@ -8,13 +10,21 @@ def pardoewray(file_path):
 
 
 # --------------------------------- CLIENT CORE VIEWS ---------------------------------- #
-def pardoewray_app(req, *args, **kwargs):
+def react(req, *args, **kwargs):
     return render(req, pardoewray('index'))
 
 
-def pardoewray_manifestJSON(req, *args, **kwargs):
+def manifest(req, *args, **kwargs):
     return render(req, pardoewray('manifest.json'), content_type='application/json')
 
 
-def pardoewray_asset_manifest(req, *args, **kwargs):
+def assets(req, *args, **kwargs):
     return render(req, pardoewray('asset-manifest.json'), content_type='application/json')
+
+
+APP = [
+    # Pardoewray App
+    path('manifest.json', manifest),
+    path('asset-manifest.json', assets),
+    re_path(r'.*$', react, name='pardoewray'),
+]

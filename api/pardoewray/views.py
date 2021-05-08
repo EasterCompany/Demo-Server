@@ -1,11 +1,11 @@
 # Local app imports
-from api.pardoewray import email
+from . import email
 from web.settings import SECRET_KEY
 # Django imports imports
 from urllib.parse import unquote
 from django.http import JsonResponse
 # Database model imports
-from api.pardoewray.models import Jobs, JobRequirements, NewsLetter
+from .models import Jobs, JobRequirements, NewsLetter
 
 
 def parse_post(obj):
